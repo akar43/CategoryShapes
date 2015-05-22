@@ -1,7 +1,11 @@
-#Category-Specific Object Reconstruction from a Single Image (CVPR 2015)
+##Category-Specific Object Reconstruction from a Single Image (CVPR 2015)
 
 ### [Abhishek Kar\*](http://cs.berkeley/edu/~akar), [Shubham Tulsiani\*](http://cs.berkeley/edu/~shubhtuls), [Joao Carreira](http://cs.berkeley/edu/~carreira), [Jitendra Malik](http://cs.berkeley/edu/~malik)
-----
+
+
+----------
+
+
 ### Datasets and Paths:
 You will need **PASCAL VOC2012** and [**PASCAL 3D+**](http://cvgl.stanford.edu/projects/pascal3d.html) to run the code. Download them and change the paths in `startup.m` to reflect your paths.
 
@@ -31,7 +35,7 @@ This will test the model you trained above (with train id `'debug'`) on the vali
 ```
 visInferredShapes('car', jobID)
 ```
-Visualize the results for the models above. `jobID` is returned by mainTest after
+Visualize the results for the models above. `jobID` is returned by `mainTest` after
 execution. It is usually `'Test<trainId><testId>'`. Use this id to perform all
 operations on the test data (evaluation/visualization etc).
 
@@ -42,7 +46,7 @@ mainEval('car',jobID);
 This will run the mesh and depth map evaluation on the cached meshes and depth maps.
 
 ### Cached files:
-All the files are cached under in 'cachedir' which is usually `./cache`. The
+All the files are cached under in `'cachedir'` which is usually `./cache`. The
 cached files are named as follows:
 
 - `shapeModelNRSFM.mat` - Parameters for the trained NRSFM model. Also contains `test_model` which contains                   the estimated parameters on the test set
@@ -53,7 +57,7 @@ cached files are named as follows:
 
 - `inferredShapes<id>` - Directory containing fitted basis shapes to instances, projection parameters after optimization etc.
 
-- `meshes<id>` - Directory containing meshes fitted to each instance. Each file contains 'faces' and 'vertices'. Can be viewed using the showMesh function
+- `meshes<id>` - Directory containing meshes fitted to each instance. Each file contains `'faces'` and `'vertices'`. Can be viewed using the showMesh function
 
 - `depthMap<id>` - Directory containing meshes rendered into depth maps per instance.
 
