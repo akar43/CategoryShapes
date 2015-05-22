@@ -1,10 +1,6 @@
 ##Category-Specific Object Reconstruction from a Single Image (CVPR 2015)
 
-### [Abhishek Kar\*](http://cs.berkeley/edu/~akar), [Shubham Tulsiani\*](http://cs.berkeley/edu/~shubhtuls), [Joao Carreira](http://cs.berkeley/edu/~carreira), [Jitendra Malik](http://cs.berkeley/edu/~malik)
-
-
-----------
-
+#### [Abhishek Kar\*](http://cs.berkeley.edu/~akar), [Shubham Tulsiani\*](http://cs.berkeley.edu/~shubhtuls), [Joao Carreira](http://cs.berkeley.edu/~carreira), [Jitendra Malik](http://cs.berkeley.edu/~malik)
 
 ### Datasets and Paths:
 You will need **PASCAL VOC2012** and [**PASCAL 3D+**](http://cvgl.stanford.edu/projects/pascal3d.html) to run the code. Download them and change the paths in `startup.m` to reflect your paths.
@@ -13,7 +9,7 @@ You will need **PASCAL VOC2012** and [**PASCAL 3D+**](http://cvgl.stanford.edu/p
 Run `compile.m`. Compile the vlfeat library under `external/`
 
 ### Data:
-All the required data can be downloaded from http://cs.berkeley.edu/~akar/categoryShapes/data.tar.gz. Unzip in `BASE_DIR/data` where `BASE_DIR` is the root directory for the codebase.
+All the required data can be downloaded from [here](http://cs.berkeley.edu/~akar/categoryShapes/data.tar.gz). Unzip in `BASE_DIR/data` where `BASE_DIR` is the root directory for the codebase.
 
 The code needs data formatted as in `data/pascalData` with keypoints and segmentations (either as polygons or binary masks). It also needs keypoint names as in data/partNames and the train/val split in PASCAL as in `data/pascalTrainValIds` and metadata about keypoints as in `data/voc_kp_metadata` to align to a canonical frame (here the Pascal 3D frame) and ensure a right handed co-ordinate system.
 
