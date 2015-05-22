@@ -7,7 +7,7 @@ You will need PASCAL VOC2012 and PASCAL 3D+ to run the code. Download them
 and change the paths in startup.m to reflect your paths.
 
 Compilation:
-Run compile.m.
+Run compile.m. Compile the vlfeat library under external/
 
 Data:
 All the required data can be downloaded from http://cs.berkeley.edu/~akar/categoryShapes/data.tar.gz
