@@ -9,6 +9,11 @@ You will need **PASCAL VOC2012** and [**PASCAL 3D+**](http://cvgl.stanford.edu/p
 Run `compile.m`. Compile the vlfeat library under `external/`
 
 ### Data:
+```
+$ sh setup_data.sh
+```
+The above script will download data for the project, PASCAL VOC 2012 and PASCAL 3D+ and put it under `data/`.
+
 All the required data can be downloaded from [here](http://cs.berkeley.edu/~akar/categoryShapes/data.tar.gz). Unzip in `BASE_DIR/data` where `BASE_DIR` is the root directory for the codebase.
 
 The code needs data formatted as in `data/pascalData` with keypoints and segmentations (either as polygons or binary masks). It also needs keypoint names as in data/partNames and the train/val split in PASCAL as in `data/pascalTrainValIds` and metadata about keypoints as in `data/voc_kp_metadata` to align to a canonical frame (here the Pascal 3D frame) and ensure a right handed co-ordinate system.
