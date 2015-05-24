@@ -10,11 +10,11 @@ currDir = pwd;
 BASE_DIR = [currDir '/'];
 cachedir  = fullfile(currDir,'cache');
 datadir   = fullfile(currDir,'data');
-PASCAL_DIR = '/work/akar/Datasets/VOCdevkit/VOC2012/JPEGImages/';
-PASCAL3Ddir = '/work/akar/Datasets/PASCAL3D+_release1.1/';
+PASCAL_DIR = fullfile(currDir,'data','VOCdevkit/VOC2012/JPEGImages/');
+PASCAL3Ddir = fullfile(currDir,'data','PASCAL3D+_release1.1/');
 
 folders = {'main','sirfsPrior/','nrsfm/','evaluation/'...
-    'visualize/','basisShapes/','utils/','posePrediction/', 'external/SIRFS'};
+    'visualize/','basisShapes/','utils/', 'external/SIRFS'};
 for i=1:length(folders)
     addpath(genpath(folders{i}));
 end
