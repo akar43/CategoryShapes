@@ -40,6 +40,16 @@ Visualize the results for the models above. `jobID` is returned by `mainTest` af
 execution. It is usually `'Test<trainId><testId>'`. Use this id to perform all
 operations on the test data (evaluation/visualization etc).
 
+```
+visNRSFMmodel('car', jobID)
+```
+Visualize the result of NRSFM. Shows the predicted 3D keypoints and their convex hull.
+
+```
+visDeformations('car', jobID)
+```
+Visualize the learnt deformation bases.
+
 ### Evaluation:
 ```
 mainEval('car',jobID);
