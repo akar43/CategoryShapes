@@ -11,7 +11,7 @@ BASE_DIR = [currDir '/'];
 cachedir  = fullfile(currDir,'cache');
 datadir   = fullfile(currDir,'data');
 PASCAL_DIR = fullfile(currDir,'data','VOCdevkit/VOC2012/JPEGImages/');
-PASCAL3Ddir = fullfile(currDir,'data','PASCAL3D+_release1.1/');
+PASCAL3Ddir = fullfile(currDir,'data','PASCAL3D+_release1.0/');
 
 folders = {'main','sirfsPrior/','nrsfm/','evaluation/'...
     'visualize/','basisShapes/','utils/', 'external/SIRFS'};
@@ -22,4 +22,5 @@ mkdirOptional(cachedir);
 clear i;
 clear currDir;
 clear folders;
-run('./external/vlfeat-0.9.18/toolbox/vl_setup.m');
+% Change vlfeat path if you already have it somewhere
+run('./external/vlfeat-0.9.20/toolbox/vl_setup.m');

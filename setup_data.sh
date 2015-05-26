@@ -5,7 +5,7 @@ mv data.tar.gz data/
 
 # Download PASCAL VOC
 wget http://host.robots.ox.ac.uk:8080/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar
-tar xvzf VOCtrainval_11-May-2012.tar
+tar -xf VOCtrainval_11-May-2012.tar
 mv VOCdevkit data/
 mv VOCtrainval_11-May-2012.tar data/
 
@@ -14,3 +14,7 @@ wget ftp://cs.stanford.edu/cs/cvgl/PASCAL3D+_release1.0.zip
 unzip PASCAL3D+_release1.0.zip
 mv PASCAL3D+* data/
 
+# Download and extract vlfeat
+cd external/
+wget http://www.vlfeat.org/download/vlfeat-0.9.20-bin.tar.gz
+tar -xvzf vlfeat-0.9.20-bin.tar.gz
