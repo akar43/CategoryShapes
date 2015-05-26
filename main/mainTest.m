@@ -39,7 +39,7 @@ testBasisShapes(shapeModelOpt,nrsfmTestModel,jobID);
 computeMeshesFromStates(class, jobID);
 
 %% Compute depth maps from meshes
-%getDepthMapsFromMeshes(class,jobID)
+getDepthMapsFromMeshes(class,jobID)
 
 %% Compute SIRFS on top of above depth maps (NOTE: Takes a long time!)
 %shapeSIRFS(class,jobID);
