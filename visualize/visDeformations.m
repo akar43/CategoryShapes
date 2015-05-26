@@ -1,9 +1,13 @@
-function visDeformations(class,jobID)
+function visDeformations(class,trainId)
     globals
     sc = 0.1;    
 
-    shName = jobDirs(class,jobID,'shapeModel');
-    tmp = load(shName);
+    shName = jobDirs(class,trainId,'shapeModel');
+    try
+        tmp = load(shName);
+    catch
+        error('File not found. Make sure you are using the trainId and not jobID returned by mainTest');
+    end
     tmp = tmp.shapeModelOpt;
     subplot(2,2,1);
     plot3(tmp.S(:,1),tmp.S(:,2),tmp.S(:,3),'.','LineWidth',3);

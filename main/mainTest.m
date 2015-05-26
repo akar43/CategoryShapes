@@ -45,4 +45,5 @@ computeMeshesFromStates(class, jobID);
 %shapeSIRFS(class,jobID);
 
 fprintf('\nJobID = %s\n', jobID);
+fprintf('\nTrainID = %s\n', trainExpId);
 end

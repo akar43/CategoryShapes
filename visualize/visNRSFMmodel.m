@@ -41,5 +41,5 @@ for i = 1:length(fnames)
     title('Convex hull of 3D keypoints');
     
     subplotsqueeze(gcf,1.2);
-    `pause;
+    pause;
 end
