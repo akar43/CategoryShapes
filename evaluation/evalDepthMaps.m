@@ -7,6 +7,13 @@ function dmapErrors = evalDepthMaps(class,jobID,metric)
     evalFileName = jobDirs(class,jobID,'evalDepth');
     statesDir = jobDirs(class, jobID, 'state');
     gtDmapDir = fullfile(cachedir,class,'gtDepthMap');
+    if(~exist(dmapDir,'dir'))
+        error('Depth maps not found. Generate them first!');
+    end
+    
+    if(~exist(gtDmapDir,'dir'))
+        error('Ground truth depth maps not found. Generate them first!');
+    end
     
     switch metric
         case 'corr'
