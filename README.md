@@ -12,7 +12,7 @@ Run `compile.m`. Compile the vlfeat library under `external/`
 ```
 $ sh setup_data.sh
 ```
-The above script will download data for the project, PASCAL VOC 2012 and PASCAL 3D+ and put it under `data/`.
+The above script will download data for the project, PASCAL VOC 2012 and PASCAL 3D+ and put it under `data/`. It will also download and extract `vlfeat` in the `external/`.
 
 All the required data can be downloaded from [here](http://cs.berkeley.edu/~akar/categoryShapes/data.tar.gz). Unzip in `BASE_DIR/data` where `BASE_DIR` is the root directory for the codebase.
 
