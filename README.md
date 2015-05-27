@@ -46,9 +46,9 @@ visNRSFMmodel('car', jobID)
 Visualize the result of NRSFM. Shows the predicted 3D keypoints and their convex hull.
 
 ```
-visDeformations('car', jobID)
+visDeformations('car', trainId)
 ```
-Visualize the learnt deformation bases.
+Visualize the learnt deformation bases. Note: use `trainId` instead of `jobID` here.
 
 ### Evaluation:
 ```
