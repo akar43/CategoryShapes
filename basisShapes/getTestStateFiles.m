@@ -34,7 +34,7 @@ parfor instance = 1:length(model_3d.c)
     end
 
     if(flip)
-        continue; %done want the to make state files for flipped test instances
+        %continue; %done want the to make state files for flipped test instances
         im(:,:,1) = fliplr(im(:,:,1));im(:,:,2) = fliplr(im(:,:,2));im(:,:,3) = fliplr(im(:,:,3));
         voc_id = ['flip_' voc_id];
     end

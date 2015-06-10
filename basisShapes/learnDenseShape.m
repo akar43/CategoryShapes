@@ -27,7 +27,7 @@ else
 end
 
 %% Iterating to learn shapes
-fprintf('\nOptimizing shapes via block co-ordinate descentn\n');
+fprintf('\nOptimizing shapes via block co-ordinate descent\n');
 fprintf('Iter\tKPGrad\tOccGrad\tSilGrad\tSIPrior\tShPrior\tDfPrior\tStep\n');
 for iter = 1:params.opt.trainIters
     %disp(['Iteration ' int2str(iter)]);

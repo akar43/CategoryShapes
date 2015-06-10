@@ -16,7 +16,7 @@ function h_fig = showMesh(mesh,color,h)
         mesh.faces = mesh.faces';
     end
     h = patch('vertices',mesh.vertices,'faces',mesh.faces,'edgecolor','none',...
-        'FaceColor',color,'FaceAlpha',0.9);       
+        'FaceColor',color,'FaceAlpha',0.5);       
     
     axis equal off vis3d
     lighting gouraud

@@ -9,7 +9,7 @@ mkdirOptional(meshDir);
 fnames = getFileNamesFromDirectory(inferredShapesOptDir,'types',{'.mat'});
 fnames = removeFlipNames(fnames);
 
-p =  TimedProgressBar( length(fnames), round(length(fnames)/3), ...
+p =  TimedProgressBar( length(fnames), 30, ...
     'Computing Meshes: Remaining ', ', Completed ', 'Meshes Computed in: ' );
 
 parfor i=1:length(fnames)

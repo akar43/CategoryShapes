@@ -5,6 +5,12 @@ function dmapErrors = evalDepthMaps(class,jobID,metric)
     end
     dmapDir = jobDirs(class,jobID,'dmap');
     evalFileName = jobDirs(class,jobID,'evalDepth');
+    if(exist(evalFileName,'file'))
+        fprintf('Evaluation file exists. Using cached depth map errors\n');
+        st = load(evalFileName);
+        dmapErrors = st.dmapErrors;
+        return;
+    end
     statesDir = jobDirs(class, jobID, 'state');
     gtDmapDir = fullfile(cachedir,class,'gtDepthMap');
     if(~exist(dmapDir,'dir'))

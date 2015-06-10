@@ -13,7 +13,7 @@ shapePriorInstance = shapeModelOpt.shapePriorInstance;
 
 %% Read file names to fit basis shapes to
 fnames = getFileNamesFromDirectory(statesDir,'types',{'.mat'});
-fnames = removeFlipNames(fnames);
+%fnames = removeFlipNames(fnames);
 
 %% Fit basis shapes
 pBar =  TimedProgressBar( length(fnames), 30, ...
@@ -57,22 +57,22 @@ for iter=1:maxiter
     end
 
     S = Sbar + reshape(V*alpha(:,1),numpoints,3);
-    
+
     % Visualization
-    if(mod(iter,10)==-1)            
-         vertices = S;         
-         subplot(2,2,1);                 
+    if(mod(iter,10)==-1)
+         vertices = S;
+         subplot(2,2,1);
          verticesP = (state.cameraRot*vertices')';
          plot3(verticesP(:,1),verticesP(:,2),verticesP(:,3),'r.');
          axis equal;axis vis3d;view(0,-90);
          %disp(state.cameraRot);
          xlabel('x');ylabel('y');zlabel('z');
-         
+
          subplot(2,2,2);
          p2 = transform2d(vertices,state.cameraRot,state.cameraScale,state.translation);
          imshow(color_seg(state.mask,state.im)); hold on; axis equal;axis off;axis vis3d;
          plot(p2(:,1),p2(:,2),'r.');
-         
+
          subplot(2,2,3);
          imagesc(state.im);axis equal;axis off;axis vis3d;
          if(iter > maxiter - 10)
@@ -83,7 +83,7 @@ for iter=1:maxiter
          end
          clf
     end
-    
+
     %% Image projection of points
     p2d = transform2d(S,state.cameraRot,state.cameraScale,state.translation);
     p2d = round(p2d);
@@ -119,7 +119,7 @@ for iter=1:maxiter
     gradP2d = gradP3d(1:2,:);
     gradTr = mean(gradP2d,2);
     Sbar2d = bsxfun(@minus,p2d,mean(p2d,1));Sbar2d = Sbar2d';
-    gradScale = mean(gradP2d(:).*Sbar2d(:))/state.cameraScale;    
+    gradScale = mean(gradP2d(:).*Sbar2d(:))/state.cameraScale;
 
     %% Rotation gradients (experimental)
     gradRot = gradP3d*S/numpoints;
@@ -131,7 +131,7 @@ for iter=1:maxiter
     normTwist = norm(gradSkewDelta,'fro');
 
     %% Deformation weight gradients
-    gradShapePriorAlpha(:,1) = V'*shapePriorGrad(:); 
+    gradShapePriorAlpha(:,1) = V'*shapePriorGrad(:);
     gradSilAlpha = V'*silGrad(:);
     gradOcclusionAlpha = V'*occGrad(:);
     gradKeypointAlpha = V'*kpGrad(:);
@@ -139,10 +139,10 @@ for iter=1:maxiter
 
 
     %% Updating transformation parameters
-    step = min(maxDelta/max(max(abs(gradAlpha))),stepsize);    
+    step = min(maxDelta/max(max(abs(gradAlpha))),stepsize);
     if(iter > maxiter/2)
         alpha = alpha+step*gradAlpha;
-    end    
+    end
     stepScale = min(stepScale,0.02*state.cameraScale/abs(gradScale));
     if(ismember('scale',relaxOpt))
         state.cameraScale = state.cameraScale + gradScale*stepScale;

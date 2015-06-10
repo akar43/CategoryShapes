@@ -20,8 +20,15 @@ load(dataFile);
 pascal_data = augmentPascal3Ddata(pascal_data,class);
 
 % Create train test split
-data.train = filterData(pascal_data,trainIds);
-data.test = filterData(pascal_data,valIds,1); %remove flipped instances
+if(1)
+    % Train/Test on everything
+    data.train = pascal_data;
+    data.test  = pascal_data;
+else
+    % Train on PASCAL detection train and test on PASCAL test
+    data.train = filterData(pascal_data,trainIds);
+    data.test = filterData(pascal_data,valIds,0); %remove flipped instances
+end
 
 % Compute actual poses from pose features for test set
 %data.test = computePosePredictions(data.test);

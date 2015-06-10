@@ -18,13 +18,13 @@ models = load(shapeModelNRSFMFile);
 if(isfield(models,'test_model'))
     fprintf('Loading cached NRSFM model from \n%s\n',shapeModelNRSFMFile);
     test_model = models.test_model;
-else    
+else
     train_model = models.train_model;
-    
+
     % Test model
-    fprintf('Test Non Rigid SFM model \n');    
+    fprintf('Test Non Rigid SFM model \n');
     test_model = testNRSFM(data,train_model);
-    
+
     % Caching trained NRSFM model
     fprintf('Caching NRSFM model in \n%s\n',shapeModelNRSFMFile);
     save(shapeModelNRSFMFile,'train_model','test_model');

@@ -6,6 +6,12 @@ meshDir = jobDirs(class,jobID,'mesh');
 inferredShapeDir = jobDirs(class,jobID,'inferredShape');    
 evalFileName = jobDirs(class,jobID,'evalMesh');
 
+if(exist(evalFileName,'file'))
+    fprintf('Evaluation file exists. Using cached mesh errors\n');
+    st= load(evalFileName);
+    meshErrors = st.meshErrors;
+    return
+end
 if(~exist(meshDir,'dir'))
     error('Meshes not found in %s\n. Compute them first!',meshDir);
 end
@@ -38,7 +44,7 @@ parfor i=1:length(fnames)
     rec_id = str2double(toks{3});
 
     if(~exist(fullfile(p3dDir,[im_id '.mat']),'file'))
-        warning('Pascal3D file not found!\n');
+        warning('Pascal3D file not found!');
         meshErrors(i) = nan;
         continue;
     end        
@@ -47,7 +53,7 @@ parfor i=1:length(fnames)
     thisCAD = p3dCAD(p3drec.cad_index);
     xIm = projectp3d(thisCAD.vertices,p3drec);
     if(isempty(xIm))
-        warning('Pascal3D file annotations missing!\n');
+        warning('Pascal3D file annotations missing!');
         meshErrors(i) = nan;
         continue;
     end
@@ -72,7 +78,7 @@ parfor i=1:length(fnames)
     meshErrors(i) = HausdorffDist(gtPtsRotTr,predPtsRotTr,1);
 
     % Visualization
-    if 0            
+    if 0          
         subplot(121)            
         showMesh(struct('vertices',gtPtsTr,'faces',thisCAD.faces),[1 0 0]);
         hold on;

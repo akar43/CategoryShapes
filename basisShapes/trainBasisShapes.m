@@ -14,10 +14,12 @@ if(exist(shapeModelOptFile,'file'))
     load(shapeModelOptFile);
 else
     % Compute state files from nrsfmModel for faster distributed processing
+    h = tic;
     getStateFiles(nrsfmModel,statesDir);
     shapeModelOpt = learnDenseShape(statesDir,class,jobID);
     fprintf('Caching Basis Shape Model at \n%s\n',shapeModelOptFile);
     save(shapeModelOptFile,'shapeModelOpt');
+    fprintf('Basis Shape Learning time - %.3f secs\n',toc(h));
 end
 
 end

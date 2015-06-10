@@ -6,7 +6,8 @@ params = get_params();
 fprintf('Testing NRSfM model\n');
 
 % Generate test set
-[~,test] = prep_data(data.test,0,0);
+% [~,test] = prep_data(data.test,0,0);
+[~,test] = prep_data(data.test,0,1);
 
 % Take full train labels and test on test set. Just reorder.
 test = normalize_test(test, train_model);

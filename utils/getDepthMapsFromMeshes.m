@@ -9,7 +9,7 @@ fnames = getFileNamesFromDirectory(meshDir,'types',{'.mat'});
 mkdirOptional(depthMapsDir);
 
 %% Loading precomputed shape
-p =  TimedProgressBar( length(fnames), round(length(fnames)/3), ...
+p =  TimedProgressBar( length(fnames), 30, ...
     'Generating Depth Maps: Remaining ', ', Completed ', 'Depth Map Time: ' );
 parfor i=1:length(fnames)
 %for i=1:length(fnames)
@@ -20,8 +20,8 @@ parfor i=1:length(fnames)
     end
     stateFile = fullfile(statesDir,fnames{i});
     state = load(stateFile);state=state.state;
-    mesh = load(meshFile);        
-    mesh = reducepatch(mesh,2000);    
+    mesh = load(meshFile);
+    mesh = reducepatch(mesh,2000);
     depthIm = meshToDepth(mesh.vertices,mesh.faces,size(state.mask));
     dmap = depthIm;
     dmap(isinf(dmap)) = nan;

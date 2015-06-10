@@ -25,7 +25,7 @@ function visDeformations(class,trainId)
         for k=tt
             ttverts = tmp.S + reshape(k*tmp.V(:,j),size(tmp.S));
             h = showMeshTri(struct('faces',tmp.tri,'vertices',ttverts));
-            view(-90,0);
+            view(-40,20);
             title(sprintf('Basis %d',j));            
             pause(0.02);cla(h);
         end
