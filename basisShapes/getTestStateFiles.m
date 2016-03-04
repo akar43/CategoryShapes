@@ -51,10 +51,11 @@ parfor instance = 1:length(model_3d.c)
     if(ismember('mask',relax))
         sdsthresh = 50;
         sdsdir = fullfile(cachedir_local,model_3d.class,['SDSmasks' num2str(sdsthresh)]);
-        [sdsbbox, bboxmask] = thisSDSMask(sdsdir,voc_id);
-        mask = zeros(size(im,1),size(im,2));
-        mask(sdsbbox(2):sdsbbox(4),sdsbbox(1):sdsbbox(3))= bboxmask;
-        mask = logical(mask);
+        % [sdsbbox, bboxmask] = thisSDSMask(sdsdir,voc_id);
+        % mask = zeros(size(im,1),size(im,2));
+        % mask(sdsbbox(2):sdsbbox(4),sdsbbox(1):sdsbbox(3))= bboxmask;
+        % mask = logical(mask);
+        mask = logical(imread(fullfile(sdsdir, [voc_id '.png'])));
         segs = model_3d.seg;
         if(~iscell(segs))
             gtmask = roipoly(im,segs.poly_x{instance},segs.poly_y{instance});
