@@ -14,7 +14,7 @@ PASCAL_DIR = fullfile(currDir,'data','VOCdevkit/VOC2012/JPEGImages/');
 PASCAL3Ddir = fullfile(currDir,'data','PASCAL3D+_release1.0/');
 
 folders = {'main','sirfsPrior/','nrsfm/','evaluation/'...
-    'visualize/','basisShapes/','utils/', 'external/SIRFS'};
+    'visualize/','basisShapes/','utils/', 'external/SIRFS','pose'};
 for i=1:length(folders)
     addpath(genpath(folders{i}));
 end

@@ -12,7 +12,7 @@ load(fullfile(datadir, 'pascalTrainValIds.mat'));
 load(dataFile);
 
 % Augment PASCAL data struct with viewpoint prediction network features
-% pascal_data = augmentPosenetFeat(pascal_data,class);
+pascal_data = augmentPosenetFeat(pascal_data,class);
 
 % Augment with PASCAL3D data - used for evaluation to align
 % learned models to PASCAL 3D frame
@@ -24,6 +24,6 @@ data.train = filterData(pascal_data,trainIds);
 data.test = filterData(pascal_data,valIds,1); %remove flipped instances
 
 % Compute actual poses from pose features for test set
-%data.test = computePosePredictions(data.test);
+data.test = computePosePredictions(data.test);
 
 end
