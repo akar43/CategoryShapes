@@ -1,6 +1,7 @@
-##Category-Specific Object Reconstruction from a Single Image (CVPR 2015)
-
+## Category-Specific Object Reconstruction from a Single Image (CVPR 2015)
 #### [Abhishek Kar\*](http://cs.berkeley.edu/~akar), [Shubham Tulsiani\*](http://cs.berkeley.edu/~shubhtuls), [Joao Carreira](http://cs.berkeley.edu/~carreira), [Jitendra Malik](http://cs.berkeley.edu/~malik)
+
+![meanshapes](https://people.eecs.berkeley.edu/~akar/meanshapes.png)
 
 ### Datasets and Paths:
 You will need [**PASCAL VOC 2012**](http://host.robots.ox.ac.uk:8080/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar) and [**PASCAL 3D+**](http://cvgl.stanford.edu/projects/pascal3d.html) to run the code. Download them and change the paths in `startup.m` to reflect your paths.
